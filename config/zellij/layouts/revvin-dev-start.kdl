@@ -1,0 +1,71 @@
+layout {
+  cwd "$REVVIN_SETUP_PATH"
+  default_tab_template {
+    pane size=1 borderless=true {
+      plugin location="zellij:tab-bar"
+    }
+    children
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+  tab name="frontend" focus=true {
+    floating_panes {
+      pane name=r"\__..Zen..__/" focus=true {
+        command "cbonsai"
+        args "-li"
+        close_on_exit true
+      }
+    }
+    pane split_direction="vertical" {
+      pane name="Lender Portal" cwd="frontend/apps/lender-portal" size="50%" {
+        command "yarn"
+        args "run" "dev"
+      }
+      pane size="50%" {
+        pane name="Borrower Portal" cwd="frontend/apps/borrower-portal" focus=true size="50%" {
+          command "yarn"
+          args "run" "dev"
+        }
+        pane name="Admin Portal" cwd="frontend/apps/admin" size="50%" {
+          command "yarn"
+          args "run" "dev"
+        }
+      }
+    }
+  }
+  tab name="backend-ruby" hide_floating_panes=true {
+    pane split_direction="vertical" {
+      pane name="Events" cwd="events" size="33%" command="./docker-up"
+      pane size="33%" {
+        pane name="Integrations" cwd="integrations" size="25%" command="./docker-up"
+        pane name="Responses" cwd="responses" size="25%" command="./docker-up"
+        pane name="Verticals" cwd="verticals" size="25%" command="./docker-up"
+        pane name="Documents" cwd="documents" focus=true size="25%" command="./docker-up"
+      }
+      pane size="33%" {
+        pane name="Users" cwd="users" size="33%" command="./docker-up"
+        pane name="Partners" cwd="partners" size="33%" command="./docker-up"
+        pane name="Workflows" cwd="workflows" size="33%" command="./docker-up"
+      }
+    }
+  }
+  tab name="backend-node" hide_floating_panes=true {
+    pane name="Apollo" focus=true cwd="apollo" size="50%" command="./docker-up"
+    pane size="50%" split_direction="vertical" {
+      pane name="Search" cwd="search" size="25%" command="./docker-up"
+      pane name="Activity Feed" cwd="activity_feed" size="25%" command="./docker-up"
+      pane name="Customizations" cwd="customizations" size="25%" command="./docker-up"
+      pane name="Collaboration" cwd="collaboration" size="25%" command="./docker-up"
+    }
+  }
+  tab name="optional-node" hide_floating_panes=true {
+    pane split_direction="vertical" {
+      pane name="Zipper" cwd="zipper" focus=true size="50%"
+      pane size="50%" {
+        pane name="AV Scanner" cwd="av_scanner" size="50%"
+        pane name="CSV Exporter" cwd="csv_exporter" size="50%"
+      }
+    }
+  }
+}

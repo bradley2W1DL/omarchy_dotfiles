@@ -1,0 +1,12 @@
+[tools]
+node = "23.11.0"
+rust = "1.86.0"
+yarn = "1.22.22"
+ruby = "3.4.2"
+deno = "2.2.10"
+java = "oracle-17.0.12"
+python = "3.13.7"
+go   = "1.25.1"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]

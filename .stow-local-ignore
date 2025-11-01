@@ -1,0 +1,13 @@
+^/README.*
+^/LICENSE.*
+
+\.git
+\.config/crush/.crush
+
+# stow ignore overrides
+fonts
+laptop
+iterm2
+uninstall_commands.md
+
+Brewfile
