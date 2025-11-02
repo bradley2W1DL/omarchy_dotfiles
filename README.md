@@ -8,35 +8,18 @@ $ ./laptop/setup.sh
 
 This script will
 - symlink dotfiles from this repo into $HOME dir (using GNU Stow)
-- install the CLI programs listed below
+- install any CLI programs listed below (programs missing from Omarchy base install)
 
 #### CLI based programs
 
-- homebrew
-- git
-- neovim
-  - ripgrep (dependency for live_grep to work)
 - fish (shell alternative)
   - fisher (fish plugins)
   - breeze (git aliases)
   - oh-my-fish (themes, etc)
-- asdf (package manager)
-  - ruby
-  - node
-  - yarn
-  - rust
 - zellij (terminal multiplexer)
+- xclip -> TBD
 
 #### Programs
-- Ghostty
-- obsidian
-- spotify
-- chrome
+- Ghostty -> supported in omarchy, just need to make default
 - brave
-- orbstack
-- amphetamine
-- rectangle
-
-##### TODO
-- get asdf package installs working
-  - I think just need to create a .tool-versions file (not symlinked)
+- orbstack -> TBD - Omarchy uses lazy docker which would be good to experiment with

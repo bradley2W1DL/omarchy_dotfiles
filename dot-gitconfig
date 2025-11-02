@@ -1,0 +1,18 @@
+[user]
+  name = bradley2w1dl
+	email = bberger@joinhomebase.com
+[push]
+  default = current
+[pull]
+  rebase = true
+[init]
+  defaultBranch = main 
+[core]
+  excludesfile = ~/.gitignore
+[diff]
+  tool = nvimdiff
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
