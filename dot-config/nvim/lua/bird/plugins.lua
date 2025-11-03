@@ -2,66 +2,66 @@ local fn = vim.fn
 
 -- Automatically install packer (package manager)
 -- migrating this to lazy.nvim
+-- to do this, each plugin here moves into its own file/spec in the lua/plugins dir
 
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+-- local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+-- print(vim.inspect(install_path))
 
-print(vim.inspect(install_path))
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
-end
+-- if fn.empty(fn.glob(install_path)) > 0 then
+--   PACKER_BOOTSTRAP = fn.system {
+--     "git",
+--     "clone",
+--     "--depth",
+--     "1",
+--     "https://github.com/wbthomason/packer.nvim",
+--     install_path,
+--   }
+--   print "Installing packer close and reopen Neovim..."
+--   vim.cmd [[packadd packer.nvim]]
+-- end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_bird_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_bird_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  print "packer require failed"
-  return
-end
+-- local status_ok, packer = pcall(require, "packer")
+-- if not status_ok then
+--   print "packer require failed"
+--   return
+-- end
 
 -- Have packer use a popup window rather than a split
 --   would be curious to dig into this packer display config...
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+-- packer.init {
+--   display = {
+--     open_fn = function()
+--       return require("packer.util").float { border = "rounded" }
+--     end,
+--   },
+-- }
 
 -- Install your plugins here
 return packer.startup(function(use)
   -- PLUGINS --
-  use "wbthomason/packer.nvim" -- have packer manage itself
-  use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    requires = {
-      'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep', "nvim-telescope/telescope-live-grep-args.nvim"
-    },
-    config = function()
-      require("telescope").load_extension("live_grep_args")
-    end
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'famiu/bufdelete.nvim' -- extended buffer delete functionality
+  -- use "wbthomason/packer.nvim" -- have packer manage itself
+  -- use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
+  -- use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
+  -- use {
+  --   'nvim-telescope/telescope.nvim', tag = '0.1.4',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep', "nvim-telescope/telescope-live-grep-args.nvim"
+  --   },
+  --   config = function()
+  --     require("telescope").load_extension("live_grep_args")
+  --   end
+  -- }
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- use 'famiu/bufdelete.nvim' -- extended buffer delete functionality
 
   -- Colorschemes --
   -- use "Rigellute/shades-of-purple.vim"
@@ -80,12 +80,13 @@ return packer.startup(function(use)
   }
 
   -- autocompletion plugins --
-  use "hrsh7th/nvim-cmp" -- top-level completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp" -- LSP completions
+  -- use "hrsh7th/nvim-cmp" -- top-level completion plugin
+  -- use "hrsh7th/cmp-buffer" -- buffer completions
+  -- use "hrsh7th/cmp-path" -- path completions
+  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "hrsh7th/cmp-nvim-lsp" -- LSP completions
+
   -- autopairs
   use "windwp/nvim-autopairs" -- auto-close (),[],{},'',""
 
@@ -140,14 +141,14 @@ return packer.startup(function(use)
     ft = { "markdown" },
   }
 
-  -- ChatGPT integration ✨
+  -- ChatGPT integration ✨ -- hold off on this one?? Crush or Claude instead?
   use {
     "jackMort/ChatGPT.nvim",
     config = function()
       -- requires that $OPENAI_API_KEY env variable is exposed
       require("chatgpt").setup({
         openai_params = {
-          model = "gpt-4o-mini",
+          model = "gpt-5-mini",
           max_tokens = 750,
         }
       })

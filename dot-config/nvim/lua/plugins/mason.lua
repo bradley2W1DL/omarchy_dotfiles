@@ -1,0 +1,2 @@
+-- todo ensure you also include the "mason-tool-installer"
+-- require("mason-tool-installer").setup({ ensure_installed = { "ripgrep" }}) -- can be opts
