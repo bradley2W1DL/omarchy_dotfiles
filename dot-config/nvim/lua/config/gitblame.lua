@@ -7,3 +7,7 @@ end
 gitblame.setup {
   enabled = false
 }
+
+-- options for git-blame plugin
+vim.g.gitblame_enabled = 0
+vim.g.gitblame_message_template = " <author> • <date> • <sha>"

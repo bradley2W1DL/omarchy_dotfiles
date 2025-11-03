@@ -1,6 +1,7 @@
 local fn = vim.fn
 
 -- Automatically install packer (package manager)
+-- migrating this to lazy.nvim
 
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 

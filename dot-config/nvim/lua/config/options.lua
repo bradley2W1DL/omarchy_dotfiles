@@ -13,7 +13,7 @@ local options = {
   showmode = true,                         -- toggles this display of mode, e.g. -- INSERT --
   showtabline = 2,                         -- always show tabs (I might not want this)
   smartcase = true,                        -- smart case (I don't know what this is)
-  smartindent = false, -- instead let treesitter handle this -- make indenting smart again
+  smartindent = false,                     -- instead let treesitter handle this -- make indenting smart again
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,                        -- creates a swapfile (swp)
@@ -36,7 +36,7 @@ local options = {
   colorcolumn = "120",                     -- show a column line at 120 chars (max line length)
   foldlevelstart = 99,                     -- when file is opened don't have any folding (e.g. yml files)
   laststatus = 2,                          -- statusline
-  background = os.getenv('NVIM_BG') or 'dark'
+  background = os.getenv('NVIM_BG') or 'dark' -- TODO, this might need to get reworked too for dynamic theme changing
 }
 
 vim.opt.shortmess:append "c"
@@ -46,9 +46,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- options for git-blame plugin
-vim.g.gitblame_enabled = 0
-vim.g.gitblame_message_template = " <author> • <date> • <sha>"
+-- -- options for git-blame plugin (moved to gitblame config file)
+-- vim.g.gitblame_enabled = 0
+-- vim.g.gitblame_message_template = " <author> • <date> • <sha>"
 
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd("BufLeave", {
 })
 
 -- Enable code folding using Treesitter
--- TODO, this isn't working for ruby files all the time...
+-- TODO, this isn't working for ruby files all the time...particularly Rspec
 local setExprFolding = vim.api.nvim_create_augroup("treesitter_expr_folding", { clear = true })
 vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
   command = "set foldmethod=expr",

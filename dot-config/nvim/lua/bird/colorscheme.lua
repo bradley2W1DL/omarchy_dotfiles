@@ -1,3 +1,5 @@
+-- TODO this should be reworked to allow for the dynamic theme setting from omarchy
+
 -- chose installed plugin colorscheme or fallback to default
 
 -- To re-install commented colorschemes uncomment in plugins.lua

@@ -46,7 +46,7 @@ keymap("n", "<Del>", '"_x', opts)
 
 -- Resize windows with +/- keys
 keymap("n", "_", ":resize -2<cr>", opts)
-keymap("n", "+", ":resize +2<cr>", opts)
+keymap("n", "<S-=>", ":resize +2<cr>", opts)
 keymap("n", "<C-_>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-=>", ":vertical resize +2<cr>", opts)
 

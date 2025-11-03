@@ -22,7 +22,7 @@ require("luasnip/loaders/from_vscode").lazy_load()
 -- })
 luasnip.filetype_extend("eruby", { "html" }) -- Extend eruby (erb) snippets with html snippets
 require("luasnip.loaders.from_lua").lazy_load({
-  paths = { vim.fn.stdpath("config") .. "/lua/bird/snippets" },
+  paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
 })
 
 

@@ -295,19 +295,19 @@ time([[Config for telescope.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'AlphaRedraw', function(cmdargs)
-          require('packer.load')({'alpha-nvim'}, { cmd = 'AlphaRedraw', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'alpha-nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('AlphaRedraw ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
           require('packer.load')({'copilot.lua'}, { cmd = 'Copilot', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Copilot ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'AlphaRedraw', function(cmdargs)
+          require('packer.load')({'alpha-nvim'}, { cmd = 'AlphaRedraw', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'alpha-nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('AlphaRedraw ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'Alpha', function(cmdargs)
           require('packer.load')({'alpha-nvim'}, { cmd = 'Alpha', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
