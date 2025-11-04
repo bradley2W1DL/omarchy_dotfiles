@@ -3,7 +3,7 @@
 --   return
 -- end
 
-local mason_lspconfig = require("bird.lsp.mason-lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 local registry = require("bird.lsp.registry")
 local handlers = require("bird.lsp.handlers")
 

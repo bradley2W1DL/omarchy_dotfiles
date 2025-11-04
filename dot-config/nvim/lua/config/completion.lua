@@ -1,3 +1,4 @@
+-- DEPRECATED: this all lives in plugins/completions.lua now
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   vim.notify("error loading 'cmp' completion plugin")
@@ -12,14 +13,6 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- require("luasnip.config").setup({
---   ext_opts = {
---     [luasnip.filetype_extend("eruby")] = { "html" }, -- Extend eruby (erb) snippets with html snippets
---   }
--- })
--- require("luasnip.util.load_snips").load_snips({
---   paths = { "./lua/bird/snippets" },
--- })
 luasnip.filetype_extend("eruby", { "html" }) -- Extend eruby (erb) snippets with html snippets
 require("luasnip.loaders.from_lua").lazy_load({
   paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
@@ -139,7 +132,6 @@ cmp.setup {
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         luasnip = "[Snippet]",
         buffer = "[Buffer]",

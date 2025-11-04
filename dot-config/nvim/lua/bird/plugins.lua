@@ -70,25 +70,25 @@ return packer.startup(function(use)
   -- use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Startup Dashboard -- Alpha --
-  use{
-    "goolord/alpha-nvim",
-    config = function ()
-      require('bird.alpha') -- path to local dashboard config 
-    end,
-    cmd = { "Alpha", "AlphaRedraw" },
-    event="BufWinEnter"
-  }
+  -- use{
+  --   "goolord/alpha-nvim",
+  --   config = function ()
+  --     require('bird.alpha') -- path to local dashboard config 
+  --   end,
+  --   cmd = { "Alpha", "AlphaRedraw" },
+  --   event="BufWinEnter"
+  -- }
 
   -- autocompletion plugins --
-  -- use "hrsh7th/nvim-cmp" -- top-level completion plugin
-  -- use "hrsh7th/cmp-buffer" -- buffer completions
-  -- use "hrsh7th/cmp-path" -- path completions
-  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  -- use "hrsh7th/cmp-nvim-lsp" -- LSP completions
+  use "hrsh7th/nvim-cmp" -- top-level completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp" -- LSP completions
 
   -- autopairs
-  use "windwp/nvim-autopairs" -- auto-close (),[],{},'',""
+  -- use "windwp/nvim-autopairs" -- auto-close (),[],{},'',""
 
   -- snippets --
   use {
@@ -96,34 +96,34 @@ return packer.startup(function(use)
     requires = "rafamadriz/friendly-snippets"
   } -- snippet engine
 
-  -- LSP (language server protocol) -- ? not sure about "protocol"
-  use "neovim/nvim-lspconfig"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
+  -- LSP (language server protocol)
+  -- use "neovim/nvim-lspconfig"
+  -- use "williamboman/mason.nvim"
+  -- use "williamboman/mason-lspconfig.nvim"
 
   -- Treesitter (syntax highlighting)
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  -- use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- Bufferline / Statusline --
-  use { "akinsho/bufferline.nvim", tag = "v4.*", requires = 'kyazdani42/nvim-web-devicons' }
-  use 'tamton-aquib/staline.nvim' -- statusline
+  -- use { "akinsho/bufferline.nvim", tag = "v4.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- use 'tamton-aquib/staline.nvim' -- statusline
 
   -- File tree viewer
-  use {
-    "nvim-tree/nvim-tree.lua",
-    requires = {
-      "nvim-tree/nvim-web-devicons", -- Fetch file type icons
-    }
-  }
+  -- use {
+  --   "nvim-tree/nvim-tree.lua",
+  --   requires = {
+  --     "nvim-tree/nvim-web-devicons", -- Fetch file type icons
+  --   }
+  -- }
 
   -- Git Blame
-  use "f-person/git-blame.nvim"
+  -- use "f-person/git-blame.nvim"
 
   -- Yaml syntax folding
-  use "pedrohdz/vim-yaml-folds"
+  -- use "pedrohdz/vim-yaml-folds"
 
   -- Easy commenting
-  use 'tpope/vim-commentary'
+  -- use "tpope/vim-commentary"
 
   -- ToggleTerm (persistent terminals) --
   -- removing this now that I've been using zellij
@@ -134,55 +134,55 @@ return packer.startup(function(use)
   -- }
 
   -- Markdown file previewer (opens in browser window)
-  use {
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  }
+  -- use {
+  --   "iamcco/markdown-preview.nvim",
+  --   run = function() vim.fn["mkdp#util#install"]() end,
+  --   setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+  --   ft = { "markdown" },
+  -- }
 
   -- ChatGPT integration ✨ -- hold off on this one?? Crush or Claude instead?
-  use {
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      -- requires that $OPENAI_API_KEY env variable is exposed
-      require("chatgpt").setup({
-        openai_params = {
-          model = "gpt-5-mini",
-          max_tokens = 750,
-        }
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  }
+  -- use {
+  --   "jackMort/ChatGPT.nvim",
+  --   config = function()
+  --     -- requires that $OPENAI_API_KEY env variable is exposed
+  --     require("chatgpt").setup({
+  --       openai_params = {
+  --         model = "gpt-5-mini",
+  --         max_tokens = 750,
+  --       }
+  --     })
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "folke/trouble.nvim",
+  --     "nvim-telescope/telescope.nvim"
+  --   }
+  -- }
 
   -- Github Copilot 🤖 -- not using the official copilot.vim plugin
-  use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        -- disabling these to prevent interference with copilot_cmp
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        -- must be version > 22.0 of node
-        copilot_node_command = vim.fn.expand("$HOME").."/.local/share/mise/installs/node/23.11.0/bin/node"
-      })
-    end,
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  }
+  -- use {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({
+  --       -- disabling these to prevent interference with copilot_cmp
+  --       suggestion = { enabled = false },
+  --       panel = { enabled = false },
+  --       -- must be version > 22.0 of node
+  --       copilot_node_command = vim.fn.expand("$HOME").."/.local/share/mise/installs/node/23.11.0/bin/node"
+  --     })
+  --   end,
+  -- }
+  -- use {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- }
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins

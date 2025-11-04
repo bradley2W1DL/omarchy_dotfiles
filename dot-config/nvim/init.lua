@@ -27,15 +27,16 @@ vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 require "config.lazy" -- replacement for plugins
 require "config.options" -- the lua directory is implied, as well as the .lua file extension
 require "config.keymaps"
--- require "bird.plugins"
--- require "bird.colorscheme"
--- presumably these configs will all move into the correct "plugin" file
-require "config.completion"
-require "config.treesitter"
 require "config.lsp" -- .lsp is a dir, so lua will search for an init.lua file in that dir
-require "config.nvim_tree"
+
+-- require "bird.plugins"
+-- require "bird.colorscheme" -- todo get the dynamic colorscheme thing working
+-- presumably these configs will all move into the correct "plugin" file
+-- require "config.completion"
+-- require "config.treesitter"
+-- require "config.nvim_tree"
 -- require "config.telescope"
-require "config.autopairs"
-require "config.bufferline" -- could replace with stabline (part of staline)
-require "config.staline"
-require "config.gitblame"
+-- require "config.autopairs"
+-- require "config.bufferline" -- could replace with stabline (part of staline)
+-- require "config.staline"
+-- require "config.gitblame"

@@ -40,7 +40,7 @@ require("lazy").setup({
         "gzip",
         "tohtml",
         "tutor",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "2html_plugin",
         "getscript",
         "getscriptPlugin",

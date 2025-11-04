@@ -1,2 +1,27 @@
--- todo ensure you also include the "mason-tool-installer"
--- require("mason-tool-installer").setup({ ensure_installed = { "ripgrep" }}) -- can be opts
+return {
+  "williamboman/mason.nvim",
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function(_, opts)
+      local registry = require("lua.config.lsp.registry")
+      local mason_servers = registry.get_mason_servers()
+
+      opts.ensure_installed = mason_servers
+
+      require("mason-lspconfig").setup(opts)
+    end,
+    opts = {
+      automatic_enable = {
+        exclude = { "lua_ls" }
+      }
+    }
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "ripgrep",
+      }
+    }
+  }
+}
