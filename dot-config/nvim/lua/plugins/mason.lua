@@ -1,9 +1,9 @@
 return {
-  "williamboman/mason.nvim",
+  {"williamboman/mason.nvim"},
   {
     "williamboman/mason-lspconfig.nvim",
     config = function(_, opts)
-      local registry = require("lua.config.lsp.registry")
+      local registry = require("config.lsp.registry")
       local mason_servers = registry.get_mason_servers()
 
       opts.ensure_installed = mason_servers

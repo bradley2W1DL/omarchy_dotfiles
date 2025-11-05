@@ -4,7 +4,7 @@ return {
   config = function(_, opts)
     require("telescope").load_extension("live_grep_args")
     local actions = require "telescope.actions"
-    local lga_actions = require "telescope-live-grep-args"
+    local lga_actions = require("telescope-live-grep-args")
 
     -- need to call the setup fuction 
     -- use guards to ensure keypaths exist -- might be worth inspecting 
@@ -97,7 +97,7 @@ return {
   end,
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-telescope/telescope-live-grep-args",
+    { "nvim-telescope/telescope-live-grep-args.nvim"},
   },
   opts = {
     defaults = {

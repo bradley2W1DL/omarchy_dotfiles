@@ -34,13 +34,14 @@ local function alphaConfig(_, opts)
   }
 
   local function footer()
-    local total_plugins = #vim.tbl_keys(packer_plugins)
+    local total_plugins = require("lazy").stats().loaded
 
     return "Loaded " .. total_plugins .. " plugins 󰏗"
   end
 
   dashboard.section.footer.val = footer()
   dashboard.section.footer.opts.hl = "AlphaFooter"
+  opts = opts or {}
   opts.layout = vim.tbl_deep_extend("force",
     opts.layout or {},
     {
