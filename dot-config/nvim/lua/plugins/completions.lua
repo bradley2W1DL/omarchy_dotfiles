@@ -3,8 +3,8 @@ return {
   {
     "hrsh7th/nvim-cmp",
     config = function()
-      local cmp = require("hrsh7th/nvim-cmp")
-      local luasnip = require("L3MON4D3/LuaSnip")
+      local cmp = require("cmp")
+      local luasnip = require("luasnip")
 
       require("luasnip/loaders/from_vscode").lazy_load()
 

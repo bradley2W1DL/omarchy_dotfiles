@@ -1,11 +1,6 @@
--- local status_ok, lspconfig = pcall(require, "lspconfig")
--- if not status_ok then
---   return
--- end
-
 local mason_lspconfig = require("mason-lspconfig")
-local registry = require("bird.lsp.registry")
-local handlers = require("bird.lsp.handlers")
+local registry = require("config.lsp.registry")
+local handlers = require("config.lsp.handlers")
 
 handlers.setup_diagnostics()
 

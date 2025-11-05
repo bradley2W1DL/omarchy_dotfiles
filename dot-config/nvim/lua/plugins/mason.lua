@@ -16,12 +16,12 @@ return {
       }
     }
   },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        "ripgrep",
-      }
-    }
-  }
+  -- {
+  --   "WhoIsSethDaniel/mason-tool-installer.nvim",
+  --   opts = {
+  --     ensure_installed = {
+  --       "ripgrep", -- I think this package name is incorrect
+  --     }
+  --   }
+  -- }
 }

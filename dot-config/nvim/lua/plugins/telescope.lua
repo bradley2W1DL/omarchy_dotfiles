@@ -4,7 +4,7 @@ return {
   config = function(_, opts)
     require("telescope").load_extension("live_grep_args")
     local actions = require "telescope.actions"
-    local lga_actions = require("telescope-live-grep-args")
+    local lga_actions = require("telescope-live-grep-args.actions")
 
     -- need to call the setup fuction 
     -- use guards to ensure keypaths exist -- might be worth inspecting 
@@ -83,7 +83,7 @@ return {
 
     -- live_grep_args extension opts
     opts.extensions.live_grep_args.mappings = opts.extensions.live_grep_args.mappings or {}
-    opts.extentions.live_grep_args.mappings.i = vim.tbl_deep_extend("force",
+    opts.extensions.live_grep_args.mappings.i = vim.tbl_deep_extend("force",
       opts.extensions.live_grep_args.mappings.i or {},
       {
         ["<C-f>"] = lga_actions.quote_prompt(), -- "quotes" current prompt
@@ -97,7 +97,7 @@ return {
   end,
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    { "nvim-telescope/telescope-live-grep-args.nvim"},
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
   },
   opts = {
     defaults = {

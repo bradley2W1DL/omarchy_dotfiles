@@ -2,7 +2,7 @@ local M = {}
 
 -- Load server configuration from individual files
 local function load_server_config(server_name)
-  local ok, config = pcall(require, "bird.lsp.servers." .. server_name)
+  local ok, config = pcall(require, "config.lsp.servers." .. server_name)
   if not ok then
     return nil
   end
@@ -12,7 +12,7 @@ end
 -- Get all available server configurations
 function M.get_all_servers()
   local servers = {}
-  local server_files = vim.fn.glob(vim.fn.stdpath('config') .. '/lua/bird/lsp/servers/*.lua', false, true)
+  local server_files = vim.fn.glob(vim.fn.stdpath('config') .. '/lua/config/lsp/servers/*.lua', false, true)
 
   for _, file in ipairs(server_files) do
     local server_name = vim.fn.fnamemodify(file, ':t:r')
