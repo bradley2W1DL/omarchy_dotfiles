@@ -31,7 +31,7 @@ require("lazy").setup({
   -- automatically check for updates
   checker = {
     enabled = true,
-    notify = true -- change this to false after I see what these notifications look like
+    notify = false -- change this to false after I see what these notifications look like
   },
   performance = {
     rtp = {

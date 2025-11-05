@@ -25,6 +25,7 @@ vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 
 -- setup conf and lua modules
 require "config.lazy" -- replacement for plugins
+require "config.colorscheme"
 require "config.options" -- the lua directory is implied, as well as the .lua file extension
 require "config.keymaps"
 require "config.lsp" -- .lsp is a dir, so lua will search for an init.lua file in that dir
