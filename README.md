@@ -8,7 +8,7 @@ ___
 ./laptop/setup.sh
 ```
 
-This script will
+This script will (TODO, setup script currently very OSX based)
 
 - symlink dotfiles from this repo into $HOME dir (using GNU Stow)
 - install any CLI programs listed below (programs missing from Omarchy base install)
