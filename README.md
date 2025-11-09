@@ -8,9 +8,10 @@ ___
 ./laptop/setup.sh
 ```
 
-This script will (TODO, setup script currently very OSX based)
+**This script will:**
 
 - symlink dotfiles from this repo into $HOME dir (using GNU Stow)
+- symlink the "theme" file into the neovim config
 - install any CLI programs listed below (programs missing from Omarchy base install)
 
 #### CLI based programs
@@ -40,4 +41,3 @@ Alternatively, after cloning this repo you'll need to run two commands to initia
 `git submodule update` to fetch all the data from the submodule project into the dot-config/nvim project directory.
 
 For more info on git submodules checkout the [docs](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
-_todo point submodule to a different branch depending on OSX or Linux version. Also setup .gitconfig in dotfiles repo for nice "git status" output_

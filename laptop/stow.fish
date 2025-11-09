@@ -4,8 +4,7 @@
 ## todo, need to figure out how to do this with pacman
 if ! type -q stow
     echo "Installing GNU stow ..."
-    # brew install stow
-    #
+    sudo pacman -S --noconfirm --needed stow
 end
 
 # if .config dir already exists, create backups of any existing dirs that I want to symlink
@@ -34,4 +33,4 @@ end
 
 # stow symlinks all files/directories in $pwd into the home dir
 # (everything not ignored by .stow-local-ignore) file
-stow --target=$HOME --verbose=2 --restow --dotfiles .
+stow --target=$HOME --verbose=1 --restow --dotfiles .
