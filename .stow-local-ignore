@@ -5,6 +5,5 @@
 \.config/crush/.crush
 \.crush
 
-# stow ignore overrides
 laptop
 uninstall_commands.md
