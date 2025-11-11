@@ -7,3 +7,6 @@
 
 laptop
 uninstall_commands.md
+
+# symlinked file, let's not track it?
+# dot-config/nvim/lua/plugins/theme.lua
